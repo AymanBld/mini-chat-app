@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, use_build_context_synchronously
-
 import 'package:chat/back_circl.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -40,12 +38,12 @@ class _RegisterState extends State<Register> {
             isTop: false,
           ),
           SingleChildScrollView(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(height: size.height * 0.15),
-                Text(
+                const Text(
                   'Create \nAccount',
                   style: TextStyle(
                     fontSize: 50,
@@ -53,13 +51,13 @@ class _RegisterState extends State<Register> {
                     color: Colors.black,
                   ),
                 ),
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
                 TextField(
                   onChanged: (value) {
                     username = value;
                   },
-                  style: TextStyle(color: Colors.indigo),
-                  decoration: InputDecoration(
+                  style: const TextStyle(color: Colors.indigo),
+                  decoration: const InputDecoration(
                     prefixIconColor: Colors.black,
                     labelStyle: TextStyle(
                       color: Colors.black,
@@ -73,8 +71,8 @@ class _RegisterState extends State<Register> {
                   onChanged: (value) {
                     phone = value;
                   },
-                  style: TextStyle(color: Colors.indigo),
-                  decoration: InputDecoration(
+                  style: const TextStyle(color: Colors.indigo),
+                  decoration: const InputDecoration(
                     prefixIconColor: Colors.black,
                     labelStyle: TextStyle(
                       color: Colors.black,
@@ -89,8 +87,8 @@ class _RegisterState extends State<Register> {
                   onChanged: (value) {
                     email = value;
                   },
-                  style: TextStyle(color: Colors.indigo),
-                  decoration: InputDecoration(
+                  style: const TextStyle(color: Colors.indigo),
+                  decoration: const InputDecoration(
                     prefixIconColor: Colors.black,
                     labelStyle: TextStyle(
                       color: Colors.black,
@@ -105,8 +103,8 @@ class _RegisterState extends State<Register> {
                   onChanged: (value) {
                     password = value;
                   },
-                  style: TextStyle(color: Colors.indigo),
-                  decoration: InputDecoration(
+                  style: const TextStyle(color: Colors.indigo),
+                  decoration: const InputDecoration(
                     prefixIconColor: Colors.black,
                     labelStyle: TextStyle(
                       color: Colors.black,
@@ -116,7 +114,7 @@ class _RegisterState extends State<Register> {
                     labelText: 'Password',
                   ),
                 ),
-                SizedBox(height: 40),
+                const SizedBox(height: 40),
                 MaterialButton(
                   minWidth: double.infinity,
                   height: 50,
@@ -124,7 +122,7 @@ class _RegisterState extends State<Register> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
                   ),
-                  child: Text(
+                  child: const Text(
                     'Sign Up',
                     style: TextStyle(
                       color: Colors.white,
@@ -133,29 +131,20 @@ class _RegisterState extends State<Register> {
                   ),
                   onPressed: () async {
                     try {
-                      await FirebaseAuth.instance
-                          .createUserWithEmailAndPassword(
+                      await FirebaseAuth.instance.createUserWithEmailAndPassword(
                         email: email,
                         password: password,
                       );
-                      await FirebaseAuth.instance.currentUser!
-                          .sendEmailVerification();
-                      await FirebaseFirestore.instance
-                          .collection('profiles')
-                          .add(
-                        {
-                          'email': email,
-                          'username': username,
-                          'phone': '$phone',
-                          'photo': 'none'
-                        },
+                      await FirebaseAuth.instance.currentUser!.sendEmailVerification();
+                      await FirebaseFirestore.instance.collection('profiles').add(
+                        {'email': email, 'username': username, 'phone': phone, 'photo': 'none'},
                       );
                       Navigator.of(context).pushReplacementNamed('login');
                     } on FirebaseAuthException catch (e) {
                       showDialog(
                         context: context,
                         builder: (context) => AlertDialog(
-                          title: Text('Error'),
+                          title: const Text('Error'),
                           content: Text(e.message!),
                         ),
                       );
@@ -165,7 +154,7 @@ class _RegisterState extends State<Register> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
+                    const Text(
                       'Already have an account ?',
                       style: TextStyle(color: Colors.white),
                     ),

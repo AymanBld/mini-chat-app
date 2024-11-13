@@ -12,7 +12,7 @@ main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -22,18 +22,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        colorScheme: ColorScheme(
-            brightness: Brightness.dark,
-            primary: Colors.orange[900]!,
-            onPrimary: Colors.white,
-            secondary: Colors.pink,
-            onSecondary: Colors.amber,
-            error: Colors.red[900]!,
-            onError: Colors.pink[200]!,
-            background: Colors.white,
-            onBackground: Colors.grey,
-            surface: Colors.white,
-            onSurface: Colors.yellow[900]!),
+        primaryColor: Colors.orange,
         textTheme: GoogleFonts.righteousTextTheme(),
       ),
       debugShowCheckedModeBanner: false,
@@ -44,8 +33,8 @@ class MyApp extends StatelessWidget {
       },
       home: (FirebaseAuth.instance.currentUser == null ||
               FirebaseAuth.instance.currentUser!.emailVerified == false)
-          ? Login()
-          : Home(),
+          ? const Login()
+          : const Home(),
     );
   }
 }

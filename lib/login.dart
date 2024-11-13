@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, use_build_context_synchronously
-
 import 'package:chat/back_circl.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -24,14 +22,12 @@ class _LoginState extends State<Login> {
 
     Future signInWithGoogle() async {
       final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-      final GoogleSignInAuthentication? googleAuth =
-          await googleUser?.authentication;
+      final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
       final credential = GoogleAuthProvider.credential(
         accessToken: googleAuth?.accessToken,
         idToken: googleAuth?.idToken,
       );
-      final UserCredential user =
-          await FirebaseAuth.instance.signInWithCredential(credential);
+      final UserCredential user = await FirebaseAuth.instance.signInWithCredential(credential);
 
       if (user.additionalUserInfo!.isNewUser) {
         await FirebaseFirestore.instance.collection('profiles').add({
@@ -48,7 +44,7 @@ class _LoginState extends State<Login> {
     return Scaffold(
       backgroundColor: Colors.grey[400],
       body: isloading == true
-          ? Center(child: CircularProgressIndicator())
+          ? const Center(child: CircularProgressIndicator())
           : Stack(
               fit: StackFit.expand,
               children: [
@@ -58,19 +54,19 @@ class _LoginState extends State<Login> {
                   radius: 700,
                   isTop: true,
                 ),
-                PartOfBack(
+                const PartOfBack(
                   begin: Colors.red,
                   end: Colors.pink,
                   radius: 350,
                   isTop: true,
                 ),
                 SingleChildScrollView(
-                  padding: EdgeInsets.all(20),
+                  padding: const EdgeInsets.all(20),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(height: size.height * 0.15),
-                      Text(
+                      const Text(
                         'Welcom \nback',
                         style: TextStyle(
                           fontSize: 50,
@@ -78,15 +74,15 @@ class _LoginState extends State<Login> {
                           color: Colors.white,
                         ),
                       ),
-                      SizedBox(height: 30),
+                      const SizedBox(height: 30),
                       TextField(
                         // controller: _email,
                         onChanged: (value) {
                           email = value;
                         },
                         keyboardType: TextInputType.emailAddress,
-                        style: TextStyle(color: Colors.indigo),
-                        decoration: InputDecoration(
+                        style: const TextStyle(color: Colors.indigo),
+                        decoration: const InputDecoration(
                           prefixIconColor: Colors.white,
                           labelStyle: TextStyle(
                             color: Colors.white,
@@ -102,8 +98,8 @@ class _LoginState extends State<Login> {
                           password = value;
                         },
                         obscureText: true,
-                        style: TextStyle(color: Colors.indigo),
-                        decoration: InputDecoration(
+                        style: const TextStyle(color: Colors.indigo),
+                        decoration: const InputDecoration(
                           prefixIconColor: Colors.white,
                           labelStyle: TextStyle(color: Colors.white),
                           prefixIcon: Icon(Icons.password),
@@ -113,7 +109,7 @@ class _LoginState extends State<Login> {
                       Container(
                         alignment: Alignment.centerRight,
                         child: TextButton(
-                          child: Text(
+                          child: const Text(
                             'Forgot password ?',
                             style: TextStyle(
                               color: Colors.pink,
@@ -123,7 +119,7 @@ class _LoginState extends State<Login> {
                             showDialog(
                               context: context,
                               builder: (context) => AlertDialog(
-                                title: Text('Reset password'),
+                                title: const Text('Reset password'),
                                 content: SizedBox(
                                   height: 150,
                                   child: Column(
@@ -131,16 +127,15 @@ class _LoginState extends State<Login> {
                                       TextField(
                                         controller: rstpass,
                                       ),
-                                      Text(
+                                      const Text(
                                         'entr your email her to send the link of reset password',
                                       ),
                                       FilledButton(
                                         onPressed: () {
                                           FirebaseAuth.instance
-                                              .sendPasswordResetEmail(
-                                                  email: rstpass.text);
+                                              .sendPasswordResetEmail(email: rstpass.text);
                                         },
-                                        child: Text('send'),
+                                        child: const Text('send'),
                                       )
                                     ],
                                   ),
@@ -150,7 +145,7 @@ class _LoginState extends State<Login> {
                           },
                         ),
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       MaterialButton(
                         minWidth: double.infinity,
                         height: 50,
@@ -158,7 +153,7 @@ class _LoginState extends State<Login> {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20),
                         ),
-                        child: Text(
+                        child: const Text(
                           'login',
                           style: TextStyle(
                             color: Colors.white,
@@ -172,8 +167,7 @@ class _LoginState extends State<Login> {
                             setState(() {
                               isloading = true;
                             });
-                            await FirebaseAuth.instance
-                                .signInWithEmailAndPassword(
+                            await FirebaseAuth.instance.signInWithEmailAndPassword(
                               email: email,
                               password: password,
                             );
@@ -181,17 +175,15 @@ class _LoginState extends State<Login> {
                               isloading = false;
                             });
 
-                            if (FirebaseAuth
-                                .instance.currentUser!.emailVerified) {
+                            if (FirebaseAuth.instance.currentUser!.emailVerified) {
                               Navigator.of(context).pushNamed('home');
                             } else {
                               FirebaseAuth.instance.signOut();
                               showDialog(
                                 context: context,
-                                builder: (context) => AlertDialog(
+                                builder: (context) => const AlertDialog(
                                   title: Text('Email not verified'),
-                                  content: Text(
-                                      'please verifi your email first from the link'),
+                                  content: Text('please verifi your email first from the link'),
                                 ),
                               );
                             }
@@ -202,14 +194,14 @@ class _LoginState extends State<Login> {
                             showDialog(
                               context: context,
                               builder: (context) => AlertDialog(
-                                title: Text('Error'),
+                                title: const Text('Error'),
                                 content: Text(e.message!),
                               ),
                             );
                           }
                         },
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       MaterialButton(
                         minWidth: double.infinity,
                         height: 50,
@@ -217,7 +209,7 @@ class _LoginState extends State<Login> {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20),
                         ),
-                        child: Text(
+                        child: const Text(
                           'login with Google',
                           style: TextStyle(
                             color: Colors.white,
@@ -231,19 +223,18 @@ class _LoginState extends State<Login> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
+                          const Text(
                             'Don\'t have an account ?',
                             style: TextStyle(
                               color: Colors.white,
                             ),
                           ),
                           TextButton(
-                            style: ButtonStyle(),
+                            // style: const ButtonStyle(),
                             onPressed: () {
-                              Navigator.of(context)
-                                  .pushReplacementNamed('register');
+                              Navigator.of(context).pushReplacementNamed('register');
                             },
-                            child: Text(
+                            child: const Text(
                               'Sign Up',
                               style: TextStyle(
                                 color: Colors.pink,

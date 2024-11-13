@@ -15,8 +15,10 @@ class Home extends StatelessWidget {
     TextEditingController messagText = TextEditingController();
 
     return Scaffold(
-      backgroundColor: Colors.grey[900],
-      appBar: AppBar(backgroundColor: Colors.black),
+      // backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+      ),
       drawer: DrawerTab(),
       body: Padding(
         padding: const EdgeInsets.all(10),
@@ -49,8 +51,8 @@ class Home extends StatelessWidget {
                     reverse: true,
                     itemCount: snapshot.data!.docs.length,
                     itemBuilder: (context, index) {
-                      bool isme = auth.currentUser!.email ==
-                          snapshot.data!.docs[index].data()['sender'];
+                      bool isme =
+                          auth.currentUser!.email == snapshot.data!.docs[index].data()['sender'];
 
                       String get(String key, bool istext) {
                         RegExp replacc = istext ? RegExp('') : RegExp(r'@.*');
@@ -58,9 +60,7 @@ class Home extends StatelessWidget {
                         if (snapshot.data!.docs[index].data()[key] == null) {
                           return '';
                         } else {
-                          return snapshot.data!.docs[index]
-                              .data()[key]
-                              .replaceAll(replacc, '');
+                          return snapshot.data!.docs[index].data()[key].replaceAll(replacc, '');
                         }
                       }
 
@@ -71,15 +71,11 @@ class Home extends StatelessWidget {
                             builder: (context) => AlertDialog(
                               // title: Text('Email not verified'),
                               content: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   FilledButton(
                                     child: Row(
-                                      children: [
-                                        Text('Delete'),
-                                        Icon(Icons.delete)
-                                      ],
+                                      children: [Text('Delete'), Icon(Icons.delete)],
                                     ),
                                     onPressed: () {
                                       Navigator.of(context).pop();
@@ -91,10 +87,7 @@ class Home extends StatelessWidget {
                                   ),
                                   FilledButton(
                                     child: Row(
-                                      children: [
-                                        Text('Edit'),
-                                        Icon(Icons.edit)
-                                      ],
+                                      children: [Text('Edit'), Icon(Icons.edit)],
                                     ),
                                     onPressed: () {
                                       Navigator.of(context).pop();
@@ -115,11 +108,8 @@ class Home extends StatelessWidget {
                                                     Navigator.of(context).pop();
                                                     FirebaseFirestore.instance
                                                         .collection('messages')
-                                                        .doc(snapshot.data!
-                                                            .docs[index].id)
-                                                        .update({
-                                                      'text': textEdit.text
-                                                    });
+                                                        .doc(snapshot.data!.docs[index].id)
+                                                        .update({'text': textEdit.text});
                                                   },
                                                   child: Text('Edit'),
                                                 ),
@@ -134,9 +124,8 @@ class Home extends StatelessWidget {
                           );
                         },
                         child: Column(
-                          crossAxisAlignment: isme
-                              ? CrossAxisAlignment.end
-                              : CrossAxisAlignment.start,
+                          crossAxisAlignment:
+                              isme ? CrossAxisAlignment.end : CrossAxisAlignment.start,
                           children: [
                             Text(
                               get('sender', false),
@@ -144,9 +133,7 @@ class Home extends StatelessWidget {
                             ),
                             Container(
                               decoration: BoxDecoration(
-                                color: isme
-                                    ? Colors.orange[900]
-                                    : Colors.blue[900],
+                                color: isme ? Colors.orange[900] : Colors.blue[900],
                                 borderRadius: BorderRadius.only(
                                   bottomLeft: Radius.circular(30),
                                   bottomRight: Radius.circular(30),

@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors, use_build_context_synchronously
-
 import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -23,16 +21,15 @@ class _DrawerTabState extends State<DrawerTab> {
       child: SafeArea(
         child: Column(
           children: [
-            SizedBox(height: 50),
+            const SizedBox(height: 50),
             FutureBuilder(
               future: FirebaseFirestore.instance
                   .collection('profiles')
-                  .where('email',
-                      isEqualTo: FirebaseAuth.instance.currentUser!.email)
+                  .where('email', isEqualTo: FirebaseAuth.instance.currentUser!.email)
                   .get(),
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
-                  return Center(child: CircularProgressIndicator());
+                  return const Center(child: CircularProgressIndicator());
                 }
                 if (snapshot.hasError) {
                   return Center(
@@ -63,8 +60,7 @@ class _DrawerTabState extends State<DrawerTab> {
                           child: IconButton(
                             onPressed: () async {
                               final ImagePicker piker = ImagePicker();
-                              XFile? imagePiked = await piker.pickImage(
-                                  source: ImageSource.camera);
+                              XFile? imagePiked = await piker.pickImage(source: ImageSource.camera);
                               File? file = File(imagePiked!.path);
                               String name = '${snapshot.data!.docs[0].id}.jpg';
 
@@ -79,7 +75,7 @@ class _DrawerTabState extends State<DrawerTab> {
                                   .update({'photo': url});
                               setState(() {});
                             },
-                            icon: Icon(
+                            icon: const Icon(
                               Icons.edit,
                               color: Colors.white,
                               size: 30,
@@ -88,30 +84,25 @@ class _DrawerTabState extends State<DrawerTab> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 15),
+                    const SizedBox(height: 15),
                     InfoText(
                         tec: username,
                         theprofile: theProfile,
                         field: 'username',
                         icon: Icons.person_2_outlined),
-                    InfoText(
-                        tec: phone,
-                        theprofile: theProfile,
-                        field: 'phone',
-                        icon: Icons.phone),
+                    InfoText(tec: phone, theprofile: theProfile, field: 'phone', icon: Icons.phone),
                   ],
                 );
               },
             ),
-            Spacer(),
+            const Spacer(),
             ListTile(
-              leading: Icon(Icons.logout),
-              title: Text('log out!'),
+              leading: const Icon(Icons.logout),
+              title: const Text('log out!'),
               onTap: () async {
                 await GoogleSignIn().signOut();
                 await FirebaseAuth.instance.signOut();
-                Navigator.of(context)
-                    .pushNamedAndRemoveUntil('login', (route) => false);
+                Navigator.of(context).pushNamedAndRemoveUntil('login', (route) => false);
               },
             ),
           ],
@@ -146,7 +137,7 @@ class _InfoTextState extends State<InfoText> {
     return TextField(
       readOnly: !inEdit,
       controller: widget.tec,
-      style: TextStyle(
+      style: const TextStyle(
         fontSize: 20,
         color: Colors.white,
       ),
