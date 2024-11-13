@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "214450735850",
+    "project_id": "chat--tawat",
+    "storage_bucket": "chat--tawat.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:214450735850:android:3d7bf581edc5f7f65ea593",
+        "android_client_info": {
+          "package_name": "com.example.chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "214450735850-p5n7449gf2lcbnntta35b9mkmn2gifp2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.chat",
+            "certificate_hash": "e60ba50011489a76b26dff89bf00845d5f0265b8"
+          }
+        },
+        {
+          "client_id": "214450735850-dbqa0cflhm5jq0ubt5isvibtunp7gjld.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDviiczyFow2ONUo3qyLkpbUPjtPQOl43s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "214450735850-dbqa0cflhm5jq0ubt5isvibtunp7gjld.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "214450735850-c2tfm3sm5p070gk5dkvr7cmet0ftjn15.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.chat"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
