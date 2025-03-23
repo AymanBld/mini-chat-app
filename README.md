@@ -14,11 +14,21 @@ A simple and intuitive chat app built with Flutter and firebase. This app allows
 - storing images in firebase storage
 
 ## Screenshots
-![Home Screen](screenshots/home.png)
 <table>
+<h4>Authentication Screens</h4>
   <tr>
-    <td><img src="screenshots/login.png" alt="Login Screen" width="200" /></td>
-    <td><img src="screenshots/signup.png" alt="Registration Screen" width="200" /></td>
+    <td><img src="screenshots/login.png" alt="Login Screen"/></td>
+    <td><img src="screenshots/signup.png" alt="Registration Screen"/></td>
+  </tr>
+</table>
+<table>
+<h4>App Screens</h4>
+  <tr>
+    <td><img src="screenshots/conversation.png" alt="conversation Screen"/></td>
+    <td><img src="screenshots/profile.png" alt="Profile drawer"/></td>
+  </tr>
+  <tr>
+    <td><img src="screenshots/edit.png" alt="Edit dialogue"/></td>
   </tr>
 </table>
 
