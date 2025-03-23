@@ -1,1 +1,0 @@
-/home/ayman/flutter/flutter app/mini-chat-app/build/app/intermediates/cxx/Debug/4m4m1g2e/obj/x86_64

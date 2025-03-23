@@ -1,2 +1,0 @@
-/home/ayman/flutter/flutter app/mini-chat-app/android/app/.cxx/Debug/4m4m1g2e/x86/CMakeFiles/edit_cache.dir
-/home/ayman/flutter/flutter app/mini-chat-app/android/app/.cxx/Debug/4m4m1g2e/x86/CMakeFiles/rebuild_cache.dir

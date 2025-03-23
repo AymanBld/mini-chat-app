@@ -34,14 +34,26 @@ A simple and intuitive chat app built with Flutter and firebase. This app allows
 
 ## Installation
 1. Clone the repository:
-   ```bash
-   git clone https://github.com/AymanBld/mini-chat-app.git
+  ```bash
+  git clone https://github.com/AymanBld/mini-chat-app.git
 2. Navigate to the project directory:
-    ```bash
-    cd mini-chat-app
+  ```bash
+  cd mini-chat-app
 3. Install dependencies:
-    ```bash
-    flutter pub get
-4. Run the app: 
-    ```bash
-    flutter run
+  ```bash
+  flutter pub get
+4. Set up Firebase:
+
+  - Go to the Firebase [Console](https://console.firebase.google.com/).
+  
+  - Create a new project (e.g., mini-chat-app).
+  
+  - Add an app (Android / ios) to your Firebase project.
+  
+  - Follow the steps to configure firebase with your app.
+              
+  - In the Firebase Console, enable Firebase services: Authentication (Email/Password and Google), Firestore, Storage
+
+5. Run the app: 
+  ```bash
+  flutter run
