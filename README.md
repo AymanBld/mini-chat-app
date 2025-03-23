@@ -13,6 +13,15 @@ A simple and intuitive chat app built with Flutter and firebase. This app allows
 - Realtime text messaging with firebase
 - storing images in firebase storage
 
+## Screenshots
+![Home Screen](screenshots/home.png)
+<table>
+  <tr>
+    <td><img src="screenshots/login.png" alt="Login Screen" width="200" /></td>
+    <td><img src="screenshots/signup.png" alt="Registration Screen" width="200" /></td>
+  </tr>
+</table>
+
 ## Installation
 1. Clone the repository:
    ```bash
