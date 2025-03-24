@@ -19,6 +19,7 @@ A simple and intuitive chat app built with Flutter and firebase. This app allows
   <tr>
     <td><img src="screenshots/login.png" alt="Login Screen"/></td>
     <td><img src="screenshots/signup.png" alt="Registration Screen"/></td>
+    <td></td>
   </tr>
 </table>
 <table>
@@ -26,8 +27,6 @@ A simple and intuitive chat app built with Flutter and firebase. This app allows
   <tr>
     <td><img src="screenshots/conversation.png" alt="conversation Screen"/></td>
     <td><img src="screenshots/profile.png" alt="Profile drawer"/></td>
-  </tr>
-  <tr>
     <td><img src="screenshots/edit.png" alt="Edit dialogue"/></td>
   </tr>
 </table>
