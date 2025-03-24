@@ -44,15 +44,15 @@ A simple and intuitive chat app built with Flutter and firebase. This app allows
    flutter pub get
 4. Set up Firebase:
 
-  - Go to the Firebase [Console](https://console.firebase.google.com/).
-  
-  - Create a new project (e.g., mini-chat-app).
-  
-  - Add an app (Android / ios) to your Firebase project.
-  
-  - Follow the steps to configure firebase with your app.
-              
-  - In the Firebase Console, enable Firebase services: Authentication (Email/Password and Google), Firestore, Storage
+    - Go to the Firebase [Console](https://console.firebase.google.com/).
+    
+    - Create a new project (e.g., mini-chat-app).
+    
+    - Add an app (Android / ios) to your Firebase project.
+    
+    - Follow the steps to configure firebase with your app.
+                
+    - In the Firebase Console, enable Firebase services: Authentication (Email/Password and Google), Firestore, Storage
 
 5. Run the app: 
    ```bash
